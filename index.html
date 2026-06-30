@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Busino Lab | University of Pennsylvania</title>
+    <style>
+        :root {
+            --ink: #0b123f;
+            --ink-soft: #28325f;
+            --muted: #5c6687;
+            --penn-blue: #011F5B;
+            --penn-red: #990000;
+            --violet: #4f46e5;
+            --line: #e6e9f2;
+            --soft: #f7f8fc;
+            --white: #ffffff;
+            --shadow: 0 18px 50px rgba(8, 20, 70, 0.10);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--ink-soft);
+            background: var(--white);
+            line-height: 1.65;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a { color: inherit; }
+
+        header {
+            background: rgba(255,255,255,0.92);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(16px);
+        }
+
+        .header-wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 380px;
+        }
+
+        .lab-logo {
+            height: 132px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .header-psom-logo {
+            height: 58px;
+            width: auto;
+            max-width: 300px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .site-title h1 {
+            font-size: 1.32rem;
+            font-weight: 800;
+            color: var(--ink);
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        .site-title p {
+            font-size: 0.72rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            margin-top: 0.4rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 750;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover { color: var(--penn-blue); }
+
+        .campus-hero {
+            position: relative;
+            min-height: 520px;
+            display: grid;
+            align-items: end;
+            overflow: hidden;
+            background: var(--ink);
+        }
+
+        .campus-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(1,31,91,0.88), rgba(1,31,91,0.52) 48%, rgba(1,31,91,0.18)), url("1500x500.jpg") center/cover no-repeat;
+            transform: scale(1.01);
+        }
+
+        .campus-hero::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 120px;
+            background: linear-gradient(180deg, rgba(255,255,255,0), #fff);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1180px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 6rem 2rem 7rem;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            color: #dce6ff;
+            border: 1px solid rgba(255,255,255,0.28);
+            background: rgba(255,255,255,0.10);
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .eyebrow-divider {
+            color: rgba(255,255,255,0.55);
+            font-weight: 600;
+            letter-spacing: 0;
+        }
+
+        .hero-content h2 {
+            max-width: 920px;
+            color: #fff;
+            font-size: clamp(2.75rem, 6vw, 5.6rem);
+            line-height: 1.06;
+            letter-spacing: -0.055em;
+            font-weight: 900;
+            margin-bottom: 1.65rem;
+        }
+
+        .hero-content .lead {
+            max-width: 710px;
+            color: #f3f6ff;
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+            line-height: 1.55;
+            font-weight: 450;
+        }
+
+        .hero-card-row {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.8rem;
+            max-width: 880px;
+            margin-top: 2rem;
+        }
+
+        .hero-pill {
+            background: rgba(255,255,255,0.13);
+            border: 1px solid rgba(255,255,255,0.22);
+            color: #fff;
+            padding: 0.85rem 0.95rem;
+            border-radius: 14px;
+            font-weight: 750;
+            font-size: 0.86rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .main-wrapper {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5.5rem;
+        }
+
+        section {
+            scroll-margin-top: 120px;
+        }
+
+        .section-kicker {
+            color: var(--violet);
+            font-size: 0.78rem;
+            font-weight: 850;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.55rem;
+        }
+
+        .section-heading {
+            font-size: clamp(2rem, 3.6vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            color: var(--ink);
+            letter-spacing: -0.06em;
+            margin-bottom: 1.2rem;
+            max-width: 780px;
+        }
+
+        .section-heading span { color: var(--violet); }
+
+        .intro-block {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 3rem;
+        }
+
+        .intro-statement {
+            font-size: 1.35rem;
+            line-height: 1.35;
+            color: var(--ink);
+            font-weight: 800;
+            letter-spacing: -0.035em;
+        }
+
+        .narrative-p {
+            color: var(--muted);
+            font-size: 1.02rem;
+            line-height: 1.75;
+            margin-bottom: 1.15rem;
+            max-width: 760px;
+        }
+
+        .feature-image {
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: var(--soft);
+            margin: 3rem 0;
+        }
+
+        .feature-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .caption {
+            padding: 1rem 1.2rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            margin: 3rem 0 0;
+            background: linear-gradient(180deg, #fff, var(--soft));
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 1.2rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .slider-container {
+            display: flex;
+            justify-content: center;
+            transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0.3rem;
+        }
+
+        .slide-img {
+            width: min(100%, 1050px);
+            height: auto;
+            max-height: 620px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            border-radius: 18px;
+            background: #fff;
+        }
+
+        .slide-caption {
+            margin-top: 1rem;
+            font-size: 0.92rem;
+            font-weight: 750;
+            color: var(--ink);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 1.1rem 0 0.2rem;
+        }
+
+        .nav-dot {
+            width: 9px;
+            height: 9px;
+            background: #cfd5e7;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .nav-dot.active {
+            background: var(--penn-blue);
+            transform: scale(1.25);
+        }
+
+        .research-split {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .split-card {
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 1.45rem;
+            background: #fff;
+            box-shadow: 0 10px 34px rgba(8, 20, 70, 0.06);
+        }
+
+        .split-card h4 {
+            font-size: 1.15rem;
+            font-weight: 850;
+            color: var(--ink);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.035em;
+            line-height: 1.18;
+        }
+
+        .split-card p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.1rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            position: relative;
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 1.6rem;
+            background: linear-gradient(180deg, #ffffff, #f8f9ff);
+            box-shadow: 0 14px 40px rgba(8, 20, 70, 0.07);
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--penn-blue), var(--violet));
+        }
+
+        .project-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: var(--ink);
+            color: #fff;
+            font-size: 0.86rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.18rem;
+            font-weight: 900;
+            color: var(--ink);
+            letter-spacing: -0.04em;
+            line-height: 1.18;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card p {
+            font-size: 0.96rem;
+            color: var(--muted);
+            line-height: 1.68;
+            margin-bottom: 0.9rem;
+        }
+
+        .project-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-tag {
+            display: inline-block;
+            margin-top: 0.35rem;
+            padding: 0.36rem 0.62rem;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--penn-blue);
+            font-size: 0.74rem;
+            font-weight: 850;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .roster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+            gap: 1rem;
+        }
+
+        .member-box {
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 1.25rem;
+            background: #fff;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .member-box:hover {
+            transform: translateY(-3px);
+            border-color: #cbd2ea;
+            box-shadow: 0 12px 34px rgba(8,20,70,0.08);
+        }
+
+        .member-box.lead {
+            background: linear-gradient(135deg, #f7f8ff, #ffffff);
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 18px;
+            padding: 1.75rem;
+        }
+
+        .member-box.featured-member {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 1.25rem;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff, #f8f9ff);
+        }
+
+        .member-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 22px;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid var(--line);
+            box-shadow: 0 14px 34px rgba(8,20,70,0.10);
+        }
+
+        .member-bio {
+            margin-top: 0.8rem;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .member-bio strong {
+            color: var(--ink);
+            font-weight: 850;
+        }
+
+        .pi-avatar {
+            width: 128px;
+            height: 128px;
+            border-radius: 24px;
+            object-fit: cover;
+            border: 1px solid var(--line);
+            box-shadow: 0 14px 34px rgba(8,20,70,0.12);
+            flex-shrink: 0;
+        }
+
+        .name-bold {
+            font-weight: 850;
+            font-size: 1.08rem;
+            color: var(--ink);
+            letter-spacing: -0.03em;
+        }
+
+        .lead .name-bold { font-size: 1.4rem; }
+
+        .title-sub {
+            font-size: 0.88rem;
+            color: var(--muted);
+            margin-top: 0.35rem;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .pi-bio {
+            max-width: 720px;
+            margin: 1rem auto 0;
+            color: var(--muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .pi-bio strong {
+            color: var(--ink);
+            font-weight: 850;
+        }
+
+        .timeline-tabs {
+            margin: 1.5rem 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .tab-button {
+            background: #fff;
+            border: 1px solid var(--line);
+            padding: 0.48rem 1rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: var(--muted);
+            transition: all 0.2s ease;
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            background: var(--ink);
+            color: #fff;
+            border-color: var(--ink);
+        }
+
+        .publication-row {
+            padding: 1.45rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .publication-row:last-child { border-bottom: none; }
+
+        .paper-title {
+            font-weight: 850;
+            font-size: 1.02rem;
+            color: var(--ink);
+            letter-spacing: -0.025em;
+            margin-bottom: 0.3rem;
+            line-height: 1.35;
+        }
+
+        .paper-authors {
+            font-size: 0.92rem;
+            color: var(--muted);
+            margin-bottom: 0.25rem;
+            line-height: 1.55;
+        }
+
+        .paper-meta {
+            font-size: 0.84rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .pubmed-tag {
+            font-size: 0.72rem;
+            background: var(--soft);
+            padding: 3px 7px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            color: var(--ink);
+            margin-left: 6px;
+            text-decoration: none;
+            font-weight: 850;
+            transition: all 0.2s ease;
+        }
+
+        .pubmed-tag:hover {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        footer {
+            background: var(--soft);
+            border-top: 1px solid var(--line);
+            margin-top: 7rem;
+            padding: 4rem 2rem 2.5rem;
+        }
+
+        .footer-cols {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .footer-logo-img {
+            height: 110px;
+            width: auto;
+            display: block;
+            margin-bottom: 1.4rem;
+        }
+
+        .psom-logo {
+            max-width: 360px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 1.4rem;
+        }
+
+        .footer-links-group h5 {
+            font-size: 0.82rem;
+            color: var(--ink);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 0.11em;
+            font-weight: 850;
+        }
+
+        .link-list { list-style: none; }
+        .link-list li { margin-bottom: 0.6rem; }
+
+        .link-list a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.93rem;
+            font-weight: 650;
+            transition: color 0.15s ease;
+        }
+
+        .link-list a:hover { color: var(--ink); }
+
+        .tw-btn {
+            display: inline-block;
+            background: var(--ink);
+            color: #fff;
+            padding: 0.7rem 1.15rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 800;
+            margin-top: 0.9rem;
+        }
+
+        .lower-footer {
+            max-width: 1180px;
+            margin: 3rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--line);
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+
+
+        .section-intro {
+            max-width: 720px;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: -0.8rem 0 2.5rem;
+        }
+
+        .people-directory {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 3rem 2rem;
+            align-items: start;
+        }
+
+        .person-card {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            overflow: visible;
+        }
+
+        .person-card:hover {
+            transform: none;
+            border-color: transparent;
+            box-shadow: none;
+        }
+
+        .person-photo-link {
+            display: block;
+            text-decoration: none;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--soft);
+            box-shadow: 0 10px 30px rgba(8,20,70,0.06);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+
+        .person-card:hover .person-photo-link {
+            transform: translateY(-5px);
+            border-color: #cbd2ea;
+            box-shadow: 0 18px 46px rgba(8,20,70,0.12);
+        }
+
+        .person-thumb {
+            width: 100%;
+            aspect-ratio: 1 / 1.1;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            background: var(--soft);
+            transition: transform 0.35s ease;
+        }
+
+        .person-card:hover .person-thumb {
+            transform: scale(1.035);
+        }
+
+        .placeholder-photo {
+            width: 100%;
+            aspect-ratio: 1 / 1.1;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #f3f5ff, #ffffff);
+            color: var(--penn-blue);
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -0.08em;
+        }
+
+        .person-card-body {
+            padding: 1rem 0 0;
+        }
+
+        .person-card h3 {
+            margin: 0;
+            font-size: 1.08rem;
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            font-weight: 850;
+        }
+
+        .person-card h3 a {
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .person-card h3 a:hover {
+            color: var(--penn-blue);
+        }
+
+        .person-title {
+            margin-top: 0.35rem;
+            color: var(--muted);
+            font-size: 0.86rem;
+            font-weight: 650;
+            line-height: 1.45;
+        }
+
+        .person-email {
+            margin-top: 0.55rem;
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .person-email a {
+            color: var(--penn-blue);
+            text-decoration: none;
+        }
+
+        .person-email span {
+            color: #8a92a8;
+        }
+
+        .person-links {
+            margin-top: 0.4rem;
+            font-size: 0.82rem;
+            font-weight: 850;
+        }
+
+        .person-links a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(1,31,91,0.25);
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .person-links a:hover {
+            color: var(--penn-blue);
+            border-color: var(--penn-blue);
+        }
+
+        .person-links span {
+            color: #8a92a8;
+        }
+
+        .people-alumni-link {
+            margin-top: 3.25rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .people-alumni-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.85rem 1.25rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #ffffff;
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 850;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(8,20,70,0.06);
+            transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .people-alumni-button:hover {
+            transform: translateY(-2px);
+            color: var(--penn-blue);
+            border-color: #cbd2ea;
+            box-shadow: 0 16px 42px rgba(8,20,70,0.10);
+        }
+
+
+
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+            gap: 1rem;
+        }
+
+        .alumni-card {
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            background: #fff;
+            padding: 1.3rem;
+            box-shadow: 0 10px 30px rgba(8,20,70,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .alumni-card:hover {
+            transform: translateY(-3px);
+            border-color: #cbd2ea;
+            box-shadow: 0 16px 42px rgba(8,20,70,0.10);
+        }
+
+        .alumni-card h3 {
+            margin: 0;
+            font-size: 1.02rem;
+            color: var(--ink);
+            letter-spacing: -0.03em;
+            line-height: 1.25;
+            font-weight: 850;
+        }
+
+        .alumni-role {
+            margin-top: 0.45rem;
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.55;
+            font-weight: 650;
+        }
+
+        .alumni-note {
+            margin-top: 0.65rem;
+            color: var(--muted);
+            font-size: 0.86rem;
+            line-height: 1.6;
+        }
+
+        .alumni-link {
+            display: inline-block;
+            margin-top: 0.8rem;
+            color: var(--penn-blue);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 850;
+            border-bottom: 1px solid rgba(1,31,91,0.25);
+        }
+
+        .alumni-link:hover {
+            border-color: var(--penn-blue);
+        }
+
+        .alumni-link.muted-link {
+            color: #8a92a8;
+            border-bottom: none;
+            cursor: default;
+        }
+
+        @media (max-width: 900px) {
+            .header-wrap { flex-direction: column; text-align: center; gap: 1rem; }
+            .brand-container { justify-content: center; min-width: auto; }
+            .lab-logo { height: 112px; }
+            .header-psom-logo { height: 50px; max-width: 280px; }
+            nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .campus-hero { min-height: 560px; }
+            .hero-card-row, .intro-block, .research-split, .project-grid, .people-directory, .alumni-grid, .footer-cols { grid-template-columns: 1fr; }
+            .hero-content { padding: 5rem 1.25rem 6rem; }
+            .main-wrapper { padding: 0 1.25rem; gap: 4rem; }
+            .member-box.lead { flex-direction: column; text-align: center; }
+            .member-box.featured-member { grid-column: 1 / -1; grid-template-columns: 1fr; text-align: center; }
+            .member-photo { margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-wrap">
+            <div class="brand-container">
+                <img src="BusinoLab_logo_header.png" alt="Busino Lab Logo" class="lab-logo">
+                <div class="site-title">
+                    <h1>Busino Lab</h1>
+                    <p>University of Pennsylvania</p>
+                </div>
+            </div>
+            <nav aria-label="Primary navigation">
+                <ul>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#people">People</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <img src="psom_logo_blue@2x.png" alt="Perelman School of Medicine, University of Pennsylvania" class="header-psom-logo">
+        </div>
+    </header>
+
+    <div class="campus-hero">
+        <div class="hero-content">
+            <div class="eyebrow"><span>Ubiquitin signaling</span><span class="eyebrow-divider">·</span><span>Targeted degradation</span><span class="eyebrow-divider">·</span><span>Blood cancer</span></div>
+            <h2>Decoding protein degradation to build smarter cancer therapies.</h2>
+            <p class="lead">The Busino Lab studies how ubiquitin ligases control cell fate and how these pathways can be redirected to treat hematologic malignancies.</p>
+            <div class="hero-card-row" aria-label="Research strengths">
+                <div class="hero-pill">Ubiquitin biology</div>
+                <div class="hero-pill">Cancer proteomics</div>
+                <div class="hero-pill">Degrader discovery</div>
+                <div class="hero-pill">Translational models</div>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-wrapper">
+        <section id="research">
+            <div class="section-kicker">Research program</div>
+            <h2 class="section-heading">From ubiquitin mechanisms to <span>precision degrader medicine.</span></h2>
+            <div class="intro-block">
+                <p class="intro-statement">We investigate how protein degradation pathways are wired in normal and malignant cells, then use that knowledge to design therapeutic strategies.</p>
+                <div>
+                    <p class="narrative-p">Our laboratory studies how the <strong>ubiquitin-proteasome system</strong> regulates cell proliferation, survival, and lineage-specific signaling. Cancer cells often become dependent on altered degradation programs. We define how ubiquitin ligases recognize substrates, how these pathways are rewired in disease, and how they can be exploited therapeutically.</p>
+                    <p class="narrative-p">We focus on hematologic malignancies, where dysregulated ubiquitin signaling creates selective dependencies in leukemia, lymphoma, and myeloma. By integrating biochemistry, proteomics, functional genomics, chemical biology, and in vivo disease models, we aim to convert molecular mechanisms into new therapeutic opportunities.</p>
+                </div>
+            </div>
+
+            <div class="slider-wrapper">
+                <div class="slider-container" id="sliderContainer">
+                    <div class="slide">
+                        <img src="intro_pic.png" alt="Protein degradation in hematologic malignancies and targeted protein degradation" class="slide-img">
+                        <div class="slide-caption">Protein degradation in hematologic malignancies, intracellular TPD, and extracellular TPD</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-kicker">Research projects</div>
+            <h2 class="section-heading">Molecular research connecting <span>mechanism, degradation, and therapy.</span></h2>
+            <div class="intro-block">
+                <p class="intro-statement">Our projects start from disease biology and end with experimentally testable therapeutic strategies.</p>
+                <div>
+                    <p class="narrative-p">The Busino Lab focuses on protein degradation pathways that create vulnerabilities in hematologic malignancies. We combine functional genetics, biochemical mechanism, molecular pharmacology, proteomics, and disease models to determine which degradation pathways are biologically important and which can be converted into druggable therapeutic concepts.</p>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <article class="project-card">
+                    <h3>E3 ligase-substrate pairs in DLBCL and myeloma</h3>
+                    <p>We identify E3 ligase-substrate relationships that are relevant to diffuse large B-cell lymphoma and multiple myeloma. The goal is to understand which ubiquitin ligases control malignant cell survival, proliferation, differentiation state, immune interactions, and therapy response.</p>
+                    <p>This program uses functional genetic approaches, including CRISPR-based perturbation and disease-context dependency analysis, together with biochemical and molecular assays that define substrate recognition, degron logic, ubiquitylation, protein turnover, and pathway output. We then ask whether each E3-substrate axis is mechanistically important, clinically relevant, and pharmacologically druggable.</p>
+                    <span class="project-tag">Functional genetics · biochemistry · disease relevance</span>
+                </article>
+
+                <article class="project-card">
+                    <h3>Molecular glues and PROTACs for intracellular targeted protein degradation</h3>
+                    <p>We discover and characterize molecular glues and PROTACs that redirect E3 ligases to eliminate intracellular disease drivers. Rather than simply inhibiting an enzymatic active site, these modalities can remove scaffold proteins, transcriptional regulators, signaling adaptors, and other proteins that are difficult to target with conventional inhibitors.</p>
+                    <p>Our analysis integrates target engagement, ternary complex formation, degradation kinetics, quantitative proteomics, resistance mechanisms, and functional responses in leukemia, lymphoma, and myeloma models. The long-term goal is to define when degradation is superior to inhibition and to build rational degrader strategies for hematologic oncology.</p>
+                    <span class="project-tag">Molecular glues · PROTACs · intracellular TPD</span>
+                </article>
+
+                <article class="project-card">
+                    <h3>Lysosomal degradation to enhance cancer immunotherapy</h3>
+                    <p>We leverage lysosomal degradation to remove extracellular and membrane proteins that suppress anti-tumor immunity. This includes antibody-, nanobody-, and receptor-engaging degrader strategies designed to reroute surface proteins into endosomal trafficking and lysosomal destruction.</p>
+                    <p>A major interest is whether durable degradation of immune checkpoints, inhibitory receptors, or disease-relevant surface proteins can improve T-cell and CAR T-cell function compared with classical blockade. We test how extracellular targeted degradation changes immune synapse biology, T-cell activation, exhaustion, tumor killing, and therapeutic selectivity in cancer models.</p>
+                    <span class="project-tag">Lysosomal degradation · immunotherapy · CAR T cells</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="people">
+            <div class="section-kicker">People</div>
+            <h2 class="section-heading">Our <span>Team</span></h2>
+            <div class="people-directory">
+                <article class="person-card">
+                    <a href="people/luca-busino.html" class="person-photo-link" aria-label="Open Luca Busino profile"><img src="busino.jpg" alt="Luca Busino" class="person-thumb"></a>
+                    <div class="person-card-body">
+                        <h3><a href="people/luca-busino.html">Luca Busino, PhD</a></h3>
+                        <p class="person-title">Principal Investigator</p>
+                        <p class="person-email"><a href="mailto:businol@upenn.edu">businol@upenn.edu</a></p>
+                        <p class="person-links"><a href="https://www.linkedin.com/in/luca-busino-63509a27" target="_blank" rel="noopener">LinkedIn</a></p>
+                    </div>
+                </article>
+                <article class="person-card">
+                    <a href="people/sehbanul-islam.html" class="person-photo-link" aria-label="Open Sehbanul Islam profile"><img src="Sehbanul_profile.jpg" alt="Sehbanul Islam" class="person-thumb"></a>
+                    <div class="person-card-body">
+                        <h3><a href="people/sehbanul-islam.html">Sehbanul Islam, PhD</a></h3>
+                        <p class="person-title">Postdoctoral Researcher</p>
+                        <p class="person-email"><a href="mailto:Sehbanul.Islam@Pennmedicine.upenn.edu">Sehbanul.Islam@Pennmedicine.upenn.edu</a></p>
+                        <p class="person-links"><a href="https://www.linkedin.com/in/sehbanulislam" target="_blank" rel="noopener">LinkedIn</a></p>
+                    </div>
+                </article>
+                <article class="person-card">
+                    <a href="people/jiadong-tao.html" class="person-photo-link" aria-label="Open Jiadong Tao profile"><img src="Jiadong_profile.jpg" alt="Jiadong Tao" class="person-thumb"></a>
+                    <div class="person-card-body">
+                        <h3><a href="people/jiadong-tao.html">Jiadong Tao, PhD</a></h3>
+                        <p class="person-title">Postdoctoral Researcher</p>
+                        <p class="person-email"><a href="mailto:Jiadong.Tao@Pennmedicine.upenn.edu">Jiadong.Tao@Pennmedicine.upenn.edu</a></p>
+                        <p class="person-links"><a href="https://www.linkedin.com/in/jiadong-tao-551351253" target="_blank" rel="noopener">LinkedIn</a></p>
+                    </div>
+                </article>
+                <article class="person-card">
+                    <a href="people/mukul-mishra.html" class="person-photo-link placeholder-photo" aria-label="Open Mukul Mishra profile">MM</a>
+                    <div class="person-card-body">
+                        <h3><a href="people/mukul-mishra.html">Mukul Mishra</a></h3>
+                        <p class="person-title">Lab Member</p>
+                        <p class="person-email"><a href="mailto:Mukul.Mishra@Pennmedicine.upenn.edu">Mukul.Mishra@Pennmedicine.upenn.edu</a></p>
+                        <p class="person-links"><span>LinkedIn coming soon</span></p>
+                    </div>
+                </article>
+                <article class="person-card">
+                    <a href="people/monika-mittal.html" class="person-photo-link placeholder-photo" aria-label="Open Monika Mittal profile">MM</a>
+                    <div class="person-card-body">
+                        <h3><a href="people/monika-mittal.html">Monika Mittal</a></h3>
+                        <p class="person-title">Lab Member</p>
+                        <p class="person-email"><a href="mailto:Monika.Mittal1@Pennmedicine.upenn.edu">Monika.Mittal1@Pennmedicine.upenn.edu</a></p>
+                        <p class="person-links"><a href="https://www.linkedin.com/in/monika-mittal-a9033b118" target="_blank" rel="noopener">LinkedIn</a></p>
+                    </div>
+                </article>
+                <article class="person-card">
+                    <a href="people/jiajun-tan.html" class="person-photo-link placeholder-photo" aria-label="Open Jiajun Tan profile">JT</a>
+                    <div class="person-card-body">
+                        <h3><a href="people/jiajun-tan.html">Jiajun Tan</a></h3>
+                        <p class="person-title">Lab Member</p>
+                        <p class="person-email"><a href="mailto:Jiajun.Tan@PennMedicine.upenn.edu">Jiajun.Tan@PennMedicine.upenn.edu</a></p>
+                        <p class="person-links"><span>LinkedIn coming soon</span></p>
+                    </div>
+                </article>
+                <article class="person-card">
+                    <a href="people/thilan-trinh.html" class="person-photo-link placeholder-photo" aria-label="Open Thilan Trinh profile">TT</a>
+                    <div class="person-card-body">
+                        <h3><a href="people/thilan-trinh.html">Thilan Trinh</a></h3>
+                        <p class="person-title">Lab Member</p>
+                        <p class="person-email"><a href="mailto:Thilan.Trinh@PennMedicine.upenn.edu">Thilan.Trinh@PennMedicine.upenn.edu</a></p>
+                        <p class="person-links"><span>LinkedIn coming soon</span></p>
+                    </div>
+                </article>
+                <article class="person-card">
+                    <a href="people/lesley-moreno.html" class="person-photo-link placeholder-photo" aria-label="Open Lesley Moreno profile">LM</a>
+                    <div class="person-card-body">
+                        <h3><a href="people/lesley-moreno.html">Lesley Moreno</a></h3>
+                        <p class="person-title">Administrative Assistant</p>
+                        <p class="person-email"><a href="mailto:ljmoreno@upenn.edu">ljmoreno@upenn.edu</a></p>
+                        <p class="person-links"><a href="https://www.linkedin.com/in/lesley-moreno" target="_blank" rel="noopener">LinkedIn</a></p>
+                    </div>
+                </article>
+            </div>
+            <div class="people-alumni-link">
+                <a href="alumni.html" class="people-alumni-button">Alumni →</a>
+            </div>
+        </section>
+
+        <section id="publications">
+            <div class="section-kicker">Publications</div>
+            <h2 class="section-heading">Selected <span>publications</span></h2>
+            <div class="timeline-tabs">
+                <button class="tab-button active" onclick="filterTimeline('all', this)">All</button>
+                <button class="tab-button" onclick="filterTimeline('2026', this)">2026</button>
+                <button class="tab-button" onclick="filterTimeline('2025', this)">2025</button>
+                <button class="tab-button" onclick="filterTimeline('2024', this)">2024</button>
+                <button class="tab-button" onclick="filterTimeline('2023', this)">2023</button>
+                <button class="tab-button" onclick="filterTimeline('2022', this)">2022</button>
+                <button class="tab-button" onclick="filterTimeline('2021', this)">2021</button>
+                <button class="tab-button" onclick="filterTimeline('2020', this)">2020</button>
+                <button class="tab-button" onclick="filterTimeline('2019', this)">2019</button>
+                <button class="tab-button" onclick="filterTimeline('2018', this)">2018</button>
+                <button class="tab-button" onclick="filterTimeline('pre-2018', this)">Pre-2018</button>
+            </div>
+            <div id="output-list"></div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-cols">
+            <div>
+                <img src="BusinoLab_logo_header.png" alt="Busino Lab Branding" class="footer-logo-img">
+                <p style="font-size:0.95rem; line-height: 1.6; margin-bottom:1.2rem; color: var(--muted);">
+                    <a href="https://www.cbio.med.upenn.edu/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none; font-weight: 700;">Department of Cancer Biology</a><br>
+                    Perelman School of Medicine | University of Pennsylvania<br>
+                    421 Curie Blvd, 705 KRB<br>
+                    Philadelphia, PA 19104
+                </p>
+                <a href="https://x.com/businolab" target="_blank" rel="noopener" class="tw-btn">Follow @businolab</a>
+                <img src="psom_logo_blue@2x.png" alt="Perelman School of Medicine, University of Pennsylvania" class="psom-logo">
+            </div>
+            <div class="footer-links-group">
+                <h5>Affiliated institutions</h5>
+                <ul class="link-list">
+                    <li><a href="https://www.upenn.edu" target="_blank" rel="noopener">University of Pennsylvania</a></li>
+                    <li><a href="https://www.med.upenn.edu" target="_blank" rel="noopener">Perelman School of Medicine</a></li>
+                    <li><a href="https://www.cbio.med.upenn.edu/" target="_blank" rel="noopener">Department of Cancer Biology</a></li>
+                    <li><a href="https://www.med.upenn.edu/pcgi/" target="_blank" rel="noopener">Penn Center for Genomic Instability</a></li>
+                    <li><a href="https://www.afcri.upenn.edu" target="_blank" rel="noopener">Abramson Family Cancer Research Institute</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="lower-footer">
+            &copy; 2026 The Busino Lab. Perelman School of Medicine, University of Pennsylvania. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function switchSlide(index) {
+            const container = document.getElementById('sliderContainer');
+            container.style.transform = `translateX(-${index * 100}%)`;
+            document.querySelectorAll('.nav-dot').forEach(dot => dot.classList.remove('active'));
+            document.getElementById(`dot${index}`).classList.add('active');
+        }
+
+        const papers = [
+            {title: "Combinatorial use of VHL and KEAP1 PROTACs reveals unexpected synergy and hook effect relief.", authors: "Islam S, Jin H, Liu D, Lu D, Zhang Y, Christenson E, Chang R, Austin J, Faustino A, Beer T, Tang HY, Huang L, Tonra JR, Busino L.", meta: "Genes Dev. 2026.", pmid: "41360670", yr: "2026"},
+            {title: "Sequence rules for a long SPOP-binding degron required for protein ubiquitylation.", authors: "Makhlouf L, Mishra M, Makhlouf H, Manfield I, Busino L, Zeqiraj E.", meta: "Biochem J. 2025.", pmid: "40178506", yr: "2025"},
+            {title: "DCAF15 control of cohesin dynamics sustains acute myeloid leukemia.", authors: "Grothusen GP, Chang R, Cao Z, Zhou N, Mittal M, Datta A, Wulfridge P, Beer T, Wang B, Zheng N, Tang HY, Sarma K, Greenberg RA, Shi J, Busino L.", meta: "Nat Commun. 2024.", pmid: "38961054", yr: "2024"},
+            {title: "A Tandem-Affinity Purification Method for Identification of Primary Intracellular Drug-Binding Proteins.", authors: "Islam S, Gour J, Beer T, Tang HY, Cassel J, Salvino JM, Busino L.", meta: "ACS Chem Biol. 2024.", pmid: "38271588", yr: "2024"},
+            {title: "Targeting epigenetics and ferroptosis in DLBCL.", authors: "Zhou N, Busino L.", meta: "Blood. 2023.", pmid: "37768695", yr: "2023"},
+            {title: "DLBCL-associated NOTCH2 mutations escape ubiquitin-dependent degradation and promote chemoresistance.", authors: "Zhou N, Choi J, Grothusen G, Kim BJ, Ren D, Cao Z, Liu Y, Li Q, Inamdar A, Beer T, Tang HY, Perkey E, Maillard I, Bonasio R, Shi J, Ruella M, Wan L, Busino L.", meta: "Blood. 2023.", pmid: "37235754", yr: "2023"},
+            {title: "Loss of LCMT1 and biased protein phosphatase 2A heterotrimerization drive prostate cancer progression and therapy resistance.", authors: "Rasool RU, et al. Busino L, Ogris E, Narla G, Asangani IA.", meta: "Nat Commun. 2023.", pmid: "37644036", yr: "2023"},
+            {title: "p53 restoration in small cell lung cancer identifies a latent cyclophilin-dependent necrosis mechanism.", authors: "Acosta J, et al. Busino L, Murphy M, Wan L, Feldser DM.", meta: "Nat Commun. 2023.", pmid: "37479684", yr: "2023"},
+            {title: "Disease-associated KBTBD4 mutations in medulloblastoma elicit neomorphic ubiquitylation activity to promote CoREST degradation.", authors: "Chen Z, Ioris RM, Richardson S, Van Ess AN, Vendrell I, Kessler BM, Buffa FM, Busino L, Clifford SC, Bullock AN, D'Angiolella V.", meta: "Cell Death Differ. 2022.", pmid: "35379950", yr: "2022"},
+            {title: "SCF ubiquitin E3 ligase regulates DNA double-strand breaks in early meiotic recombination.", authors: "Guan Y, Lin H, Leu NA, Ruthel G, Fuchs SY, Busino L, Luo M, Wang PJ.", meta: "Nucleic Acids Res. 2022.", pmid: "35489071", yr: "2022"},
+            {title: "CRL4AMBRA1 is a master regulator of D-type cyclins.", authors: "Simoneschi D, Rona G, Zhou N, Jeong YT, Jiang S, Milletti G, Arbini AA, O'Sullivan A, Wang AA, Nithikasem S, Keegan S, Siu Y, Cianfanelli V, Maiani E, Nazio F, Cecconi F, Boccalatte F, Fenyö D, Jones DR, Busino L, Pagano M.", meta: "Nature. 2021. Busino and Pagano: co-corresponding and co-last authors.", pmid: "33854235", yr: "2021"},
+            {title: "Targeting the E3 ubiquitin ligases DCAF15 and cereblon for cancer therapy.", authors: "Nguyen KM, Busino L.", meta: "Semin Cancer Biol. 2020.", pmid: "32200025", yr: "2020"},
+            {title: "FBXW7 Triggers Degradation of KMT2D to Favor Growth of Diffuse Large B-cell Lymphoma Cells.", authors: "Saffie R, Zhou N, Rolland D, Önder Ö, Basrur V, Campbell S, Wellen KE, Elenitoba-Johnson KSJ, Capell BC, Busino L.", meta: "Cancer Res. 2020.", pmid: "32350066", yr: "2020"},
+            {title: "The E3 ubiquitin ligase SPOP controls resolution of systemic inflammation by triggering MYD88 degradation.", authors: "Guillamot M, et al. Busino L, Aifantis I.", meta: "Nat Immunol. 2019. Busino and Aifantis: co-corresponding and co-last authors.", pmid: "31406379", yr: "2019"},
+            {title: "RUNX proteins desensitize multiple myeloma to lenalidomide via protecting IKZFs from degradation.", authors: "Zhou N, Gutierrez-Uzquiza A, Zheng XY, Chang R, Vogl DT, Garfall AL, Bernabei L, Saraf A, Florens L, Washburn MP, Illendula A, Bushweller JH, Busino L.", meta: "Leukemia. 2019.", pmid: "30760870", yr: "2019"},
+            {title: "Loss of KLHL6 promotes diffuse large B-cell lymphoma growth and survival by stabilizing the mRNA decay factor roquin2.", authors: "Choi J, Lee K, Ingvarsdottir K, Bonasio R, Saraf A, Florens L, Washburn MP, Tadros S, Green MR, Busino L.", meta: "Nat Cell Biol. 2018.", pmid: "29695787", yr: "2018"},
+            {title: "Fbxw7α- and GSK3-mediated degradation of p100 is a pro-survival mechanism in multiple myeloma.", authors: "Busino L, Millman SE, Scotto L, Kyratsous CA, Basrur V, O'Connor O, Hoffmann A, Elenitoba-Johnson KS, Pagano M.", meta: "Nat Cell Biol. 2012.", pmid: "22388891", yr: "pre-2018"},
+            {title: "Degradation of Cdc25A by beta-TrCP during S phase and in response to DNA damage.", authors: "Busino L, Donzelli M, Chiesa M, Guardavaccaro D, Ganoth D, Dorrello NV, Hershko As, Pagano M, Draetta GF.", meta: "Nature. 2003.", pmid: "14603323", yr: "pre-2018"}
+        ];
+
+        function writePapers() {
+            const el = document.getElementById('output-list');
+            el.innerHTML = '';
+            papers.forEach(p => {
+                const row = document.createElement('div');
+                row.className = 'publication-row';
+                row.setAttribute('data-yr', p.yr);
+                row.innerHTML = `
+                    <div class="paper-title">${p.title}</div>
+                    <div class="paper-authors">${p.authors}</div>
+                    <span class="paper-meta">${p.meta}</span>
+                    <a class="pubmed-tag" href="https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/" target="_blank">PubMed</a>
+                `;
+                el.appendChild(row);
+            });
+        }
+
+        function filterTimeline(yr, btn) {
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.publication-row').forEach(row => {
+                if (yr === 'all' || row.getAttribute('data-yr') === yr) {
+                    row.style.display = 'block';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        writePapers();
+    </script>
+</body>
+</html>

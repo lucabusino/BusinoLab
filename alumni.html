@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni | The Busino Lab</title>
+    <style>
+        :root {
+            --ink: #0b123f;
+            --ink-soft: #28325f;
+            --muted: #5c6687;
+            --penn-blue: #011F5B;
+            --penn-red: #990000;
+            --violet: #4f46e5;
+            --line: #e6e9f2;
+            --soft: #f7f8fc;
+            --white: #ffffff;
+            --shadow: 0 18px 50px rgba(8, 20, 70, 0.10);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--ink-soft);
+            background: var(--white);
+            line-height: 1.65;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a { color: inherit; }
+
+        header {
+            background: rgba(255,255,255,0.92);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(16px);
+        }
+
+        .header-wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 380px;
+        }
+
+        .lab-logo {
+            height: 132px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .header-psom-logo {
+            height: 58px;
+            width: auto;
+            max-width: 300px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .site-title h1 {
+            font-size: 1.32rem;
+            font-weight: 800;
+            color: var(--ink);
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        .site-title p {
+            font-size: 0.72rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            margin-top: 0.4rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 750;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover { color: var(--penn-blue); }
+
+        .campus-hero {
+            position: relative;
+            min-height: 520px;
+            display: grid;
+            align-items: end;
+            overflow: hidden;
+            background: var(--ink);
+        }
+
+        .campus-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(1,31,91,0.88), rgba(1,31,91,0.52) 48%, rgba(1,31,91,0.18)), url("1500x500.jpg") center/cover no-repeat;
+            transform: scale(1.01);
+        }
+
+        .campus-hero::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 120px;
+            background: linear-gradient(180deg, rgba(255,255,255,0), #fff);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1180px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 6rem 2rem 7rem;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            color: #dce6ff;
+            border: 1px solid rgba(255,255,255,0.28);
+            background: rgba(255,255,255,0.10);
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .eyebrow-divider {
+            color: rgba(255,255,255,0.55);
+            font-weight: 600;
+            letter-spacing: 0;
+        }
+
+        .hero-content h2 {
+            max-width: 920px;
+            color: #fff;
+            font-size: clamp(2.75rem, 6vw, 5.6rem);
+            line-height: 1.06;
+            letter-spacing: -0.055em;
+            font-weight: 900;
+            margin-bottom: 1.65rem;
+        }
+
+        .hero-content .lead {
+            max-width: 710px;
+            color: #f3f6ff;
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+            line-height: 1.55;
+            font-weight: 450;
+        }
+
+        .hero-card-row {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.8rem;
+            max-width: 880px;
+            margin-top: 2rem;
+        }
+
+        .hero-pill {
+            background: rgba(255,255,255,0.13);
+            border: 1px solid rgba(255,255,255,0.22);
+            color: #fff;
+            padding: 0.85rem 0.95rem;
+            border-radius: 14px;
+            font-weight: 750;
+            font-size: 0.86rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .main-wrapper {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5.5rem;
+        }
+
+        section {
+            scroll-margin-top: 120px;
+        }
+
+        .section-kicker {
+            color: var(--violet);
+            font-size: 0.78rem;
+            font-weight: 850;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.55rem;
+        }
+
+        .section-heading {
+            font-size: clamp(2rem, 3.6vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            color: var(--ink);
+            letter-spacing: -0.06em;
+            margin-bottom: 1.2rem;
+            max-width: 780px;
+        }
+
+        .section-heading span { color: var(--violet); }
+
+        .intro-block {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 3rem;
+        }
+
+        .intro-statement {
+            font-size: 1.35rem;
+            line-height: 1.35;
+            color: var(--ink);
+            font-weight: 800;
+            letter-spacing: -0.035em;
+        }
+
+        .narrative-p {
+            color: var(--muted);
+            font-size: 1.02rem;
+            line-height: 1.75;
+            margin-bottom: 1.15rem;
+            max-width: 760px;
+        }
+
+        .feature-image {
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: var(--soft);
+            margin: 3rem 0;
+        }
+
+        .feature-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .caption {
+            padding: 1rem 1.2rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            margin: 3rem 0 0;
+            background: linear-gradient(180deg, #fff, var(--soft));
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 1.2rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            text-align: center;
+            padding: 0.3rem;
+        }
+
+        .slide-img {
+            width: 100%;
+            height: auto;
+            max-height: 620px;
+            object-fit: contain;
+            display: block;
+            border-radius: 18px;
+            background: #fff;
+        }
+
+        .slide-caption {
+            margin-top: 1rem;
+            font-size: 0.92rem;
+            font-weight: 750;
+            color: var(--ink);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 1.1rem 0 0.2rem;
+        }
+
+        .nav-dot {
+            width: 9px;
+            height: 9px;
+            background: #cfd5e7;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .nav-dot.active {
+            background: var(--penn-blue);
+            transform: scale(1.25);
+        }
+
+        .research-split {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .split-card {
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 1.45rem;
+            background: #fff;
+            box-shadow: 0 10px 34px rgba(8, 20, 70, 0.06);
+        }
+
+        .split-card h4 {
+            font-size: 1.15rem;
+            font-weight: 850;
+            color: var(--ink);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.035em;
+            line-height: 1.18;
+        }
+
+        .split-card p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.1rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            position: relative;
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 1.6rem;
+            background: linear-gradient(180deg, #ffffff, #f8f9ff);
+            box-shadow: 0 14px 40px rgba(8, 20, 70, 0.07);
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--penn-blue), var(--violet));
+        }
+
+        .project-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: var(--ink);
+            color: #fff;
+            font-size: 0.86rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.18rem;
+            font-weight: 900;
+            color: var(--ink);
+            letter-spacing: -0.04em;
+            line-height: 1.18;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card p {
+            font-size: 0.96rem;
+            color: var(--muted);
+            line-height: 1.68;
+            margin-bottom: 0.9rem;
+        }
+
+        .project-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-tag {
+            display: inline-block;
+            margin-top: 0.35rem;
+            padding: 0.36rem 0.62rem;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--penn-blue);
+            font-size: 0.74rem;
+            font-weight: 850;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .roster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+            gap: 1rem;
+        }
+
+        .member-box {
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 1.25rem;
+            background: #fff;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .member-box:hover {
+            transform: translateY(-3px);
+            border-color: #cbd2ea;
+            box-shadow: 0 12px 34px rgba(8,20,70,0.08);
+        }
+
+        .member-box.lead {
+            background: linear-gradient(135deg, #f7f8ff, #ffffff);
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 18px;
+            padding: 1.75rem;
+        }
+
+        .member-box.featured-member {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 1.25rem;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff, #f8f9ff);
+        }
+
+        .member-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 22px;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid var(--line);
+            box-shadow: 0 14px 34px rgba(8,20,70,0.10);
+        }
+
+        .member-bio {
+            margin-top: 0.8rem;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .member-bio strong {
+            color: var(--ink);
+            font-weight: 850;
+        }
+
+        .pi-avatar {
+            width: 128px;
+            height: 128px;
+            border-radius: 24px;
+            object-fit: cover;
+            border: 1px solid var(--line);
+            box-shadow: 0 14px 34px rgba(8,20,70,0.12);
+            flex-shrink: 0;
+        }
+
+        .name-bold {
+            font-weight: 850;
+            font-size: 1.08rem;
+            color: var(--ink);
+            letter-spacing: -0.03em;
+        }
+
+        .lead .name-bold { font-size: 1.4rem; }
+
+        .title-sub {
+            font-size: 0.88rem;
+            color: var(--muted);
+            margin-top: 0.35rem;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .pi-bio {
+            max-width: 720px;
+            margin: 1rem auto 0;
+            color: var(--muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .pi-bio strong {
+            color: var(--ink);
+            font-weight: 850;
+        }
+
+        .timeline-tabs {
+            margin: 1.5rem 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .tab-button {
+            background: #fff;
+            border: 1px solid var(--line);
+            padding: 0.48rem 1rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: var(--muted);
+            transition: all 0.2s ease;
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            background: var(--ink);
+            color: #fff;
+            border-color: var(--ink);
+        }
+
+        .publication-row {
+            padding: 1.45rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .publication-row:last-child { border-bottom: none; }
+
+        .paper-title {
+            font-weight: 850;
+            font-size: 1.02rem;
+            color: var(--ink);
+            letter-spacing: -0.025em;
+            margin-bottom: 0.3rem;
+            line-height: 1.35;
+        }
+
+        .paper-authors {
+            font-size: 0.92rem;
+            color: var(--muted);
+            margin-bottom: 0.25rem;
+            line-height: 1.55;
+        }
+
+        .paper-meta {
+            font-size: 0.84rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .pubmed-tag {
+            font-size: 0.72rem;
+            background: var(--soft);
+            padding: 3px 7px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            color: var(--ink);
+            margin-left: 6px;
+            text-decoration: none;
+            font-weight: 850;
+            transition: all 0.2s ease;
+        }
+
+        .pubmed-tag:hover {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        footer {
+            background: var(--soft);
+            border-top: 1px solid var(--line);
+            margin-top: 7rem;
+            padding: 4rem 2rem 2.5rem;
+        }
+
+        .footer-cols {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .footer-logo-img {
+            height: 110px;
+            width: auto;
+            display: block;
+            margin-bottom: 1.4rem;
+        }
+
+        .psom-logo {
+            max-width: 360px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 1.4rem;
+        }
+
+        .footer-links-group h5 {
+            font-size: 0.82rem;
+            color: var(--ink);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 0.11em;
+            font-weight: 850;
+        }
+
+        .link-list { list-style: none; }
+        .link-list li { margin-bottom: 0.6rem; }
+
+        .link-list a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.93rem;
+            font-weight: 650;
+            transition: color 0.15s ease;
+        }
+
+        .link-list a:hover { color: var(--ink); }
+
+        .tw-btn {
+            display: inline-block;
+            background: var(--ink);
+            color: #fff;
+            padding: 0.7rem 1.15rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 800;
+            margin-top: 0.9rem;
+        }
+
+        .lower-footer {
+            max-width: 1180px;
+            margin: 3rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--line);
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+
+
+        .section-intro {
+            max-width: 720px;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: -0.8rem 0 2.5rem;
+        }
+
+        .people-directory {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 3rem 2rem;
+            align-items: start;
+        }
+
+        .person-card {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            overflow: visible;
+        }
+
+        .person-card:hover {
+            transform: none;
+            border-color: transparent;
+            box-shadow: none;
+        }
+
+        .person-photo-link {
+            display: block;
+            text-decoration: none;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--soft);
+            box-shadow: 0 10px 30px rgba(8,20,70,0.06);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+
+        .person-card:hover .person-photo-link {
+            transform: translateY(-5px);
+            border-color: #cbd2ea;
+            box-shadow: 0 18px 46px rgba(8,20,70,0.12);
+        }
+
+        .person-thumb {
+            width: 100%;
+            aspect-ratio: 1 / 1.1;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            background: var(--soft);
+            transition: transform 0.35s ease;
+        }
+
+        .person-card:hover .person-thumb {
+            transform: scale(1.035);
+        }
+
+        .placeholder-photo {
+            width: 100%;
+            aspect-ratio: 1 / 1.1;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #f3f5ff, #ffffff);
+            color: var(--penn-blue);
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -0.08em;
+        }
+
+        .person-card-body {
+            padding: 1rem 0 0;
+        }
+
+        .person-card h3 {
+            margin: 0;
+            font-size: 1.08rem;
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+            font-weight: 850;
+        }
+
+        .person-card h3 a {
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .person-card h3 a:hover {
+            color: var(--penn-blue);
+        }
+
+        .person-title {
+            margin-top: 0.35rem;
+            color: var(--muted);
+            font-size: 0.86rem;
+            font-weight: 650;
+            line-height: 1.45;
+        }
+
+        .person-email {
+            margin-top: 0.55rem;
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .person-email a {
+            color: var(--penn-blue);
+            text-decoration: none;
+        }
+
+        .person-email span {
+            color: #8a92a8;
+        }
+
+        .person-links {
+            margin-top: 0.4rem;
+            font-size: 0.82rem;
+            font-weight: 850;
+        }
+
+        .person-links a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(1,31,91,0.25);
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .person-links a:hover {
+            color: var(--penn-blue);
+            border-color: var(--penn-blue);
+        }
+
+        .person-links span {
+            color: #8a92a8;
+        }
+
+
+
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+            gap: 1rem;
+        }
+
+        .alumni-card {
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            background: #fff;
+            padding: 1.3rem;
+            box-shadow: 0 10px 30px rgba(8,20,70,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .alumni-card:hover {
+            transform: translateY(-3px);
+            border-color: #cbd2ea;
+            box-shadow: 0 16px 42px rgba(8,20,70,0.10);
+        }
+
+        .alumni-card h3 {
+            margin: 0;
+            font-size: 1.02rem;
+            color: var(--ink);
+            letter-spacing: -0.03em;
+            line-height: 1.25;
+            font-weight: 850;
+        }
+
+        .alumni-role {
+            margin-top: 0.45rem;
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.55;
+            font-weight: 650;
+        }
+
+        .alumni-note {
+            margin-top: 0.65rem;
+            color: var(--muted);
+            font-size: 0.86rem;
+            line-height: 1.6;
+        }
+
+        .alumni-link {
+            display: inline-block;
+            margin-top: 0.8rem;
+            color: var(--penn-blue);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 850;
+            border-bottom: 1px solid rgba(1,31,91,0.25);
+        }
+
+        .alumni-link:hover {
+            border-color: var(--penn-blue);
+        }
+
+        .alumni-link.muted-link {
+            color: #8a92a8;
+            border-bottom: none;
+            cursor: default;
+        }
+
+        @media (max-width: 900px) {
+            .header-wrap { flex-direction: column; text-align: center; gap: 1rem; }
+            .brand-container { justify-content: center; min-width: auto; }
+            .lab-logo { height: 112px; }
+            .header-psom-logo { height: 50px; max-width: 280px; }
+            nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .campus-hero { min-height: 560px; }
+            .hero-card-row, .intro-block, .research-split, .project-grid, .people-directory, .alumni-grid, .footer-cols { grid-template-columns: 1fr; }
+            .hero-content { padding: 5rem 1.25rem 6rem; }
+            .main-wrapper { padding: 0 1.25rem; gap: 4rem; }
+            .member-box.lead { flex-direction: column; text-align: center; }
+            .member-box.featured-member { grid-column: 1 / -1; grid-template-columns: 1fr; text-align: center; }
+            .member-photo { margin: 0 auto; }
+        }
+    
+
+        .alumni-page-hero {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 5rem 2rem 2.5rem;
+        }
+
+        .alumni-page-hero h2 {
+            max-width: 850px;
+            color: var(--ink);
+            font-size: clamp(2.6rem, 5vw, 5rem);
+            line-height: 1.05;
+            letter-spacing: -0.07em;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+        }
+
+        .alumni-page-hero p {
+            max-width: 760px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+        .alumni-page-grid {
+            max-width: 1180px;
+            margin: 0 auto 6rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.3rem;
+        }
+
+        .alumni-profile-card {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 34px rgba(8,20,70,0.06);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .alumni-profile-card:hover {
+            transform: translateY(-4px);
+            border-color: #cbd2ea;
+            box-shadow: 0 18px 44px rgba(8,20,70,0.10);
+        }
+
+        .alumni-photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            background: linear-gradient(135deg, #eef2ff, #f8fafc);
+        }
+
+        .alumni-profile-body {
+            padding: 1.25rem;
+        }
+
+        .alumni-profile-body h3 {
+            font-size: 1.1rem;
+            color: var(--ink);
+            letter-spacing: -0.035em;
+            margin-bottom: 0.45rem;
+        }
+
+        .alumni-current-title {
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.5;
+            min-height: 3.1rem;
+        }
+
+        .alumni-profile-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-size: 0.82rem;
+            font-weight: 850;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .alumni-profile-links a, .alumni-profile-links span {
+            color: var(--penn-blue);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(1,37,110,0.25);
+        }
+
+        .alumni-profile-links span {
+            color: #8a92a8;
+            border-bottom: none;
+        }
+
+        .back-link-row {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 0;
+        }
+
+        .back-link-row a {
+            color: var(--penn-blue);
+            font-size: 0.82rem;
+            font-weight: 850;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(1,37,110,0.25);
+        }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-wrap">
+            <div class="brand-container">
+                <img src="BusinoLab_logo_header.png" alt="Busino Lab Logo" class="lab-logo">
+                <div class="site-title">
+                    <h1>Busino Lab</h1>
+                    <p>University of Pennsylvania</p>
+                </div>
+            </div>
+            <nav aria-label="Primary navigation">
+                <ul>
+                    <li><a href="index.html#research">Research</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#people">People</a></li>
+                    <li><a href="alumni.html">Alumni</a></li>
+                    <li><a href="index.html#publications">Publications</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <img src="psom_logo_blue@2x.png" alt="Perelman School of Medicine, University of Pennsylvania" class="header-psom-logo">
+        </div>
+    </header>
+
+    <div class="back-link-row"><a href="index.html">← Back to main site</a></div>
+    <main>
+        <section class="alumni-page-hero">
+            <div class="section-kicker">Alumni</div>
+            <h2>Busino Lab alumni.</h2>
+            <p>Former trainees and lab members have moved into academic, biotechnology, pharmaceutical, consulting, and communications roles. This page highlights where they are now.</p>
+        </section>
+
+        <section class="alumni-page-grid" aria-label="Busino Lab alumni list">
+                <article class="alumni-profile-card">
+                    <img src="alumni_nan_zhou.jpg" alt="Nan Zhou, PhD" class="alumni-photo">
+                    <div class="alumni-profile-body">
+                        <h3>Nan Zhou, PhD</h3>
+                        <p class="alumni-current-title">Associate Professor and doctoral supervisor, Sun Yat-sen University School of Medicine</p>
+                        <div class="alumni-profile-links"><a href="https://szmed.sysu.edu.cn/zh-hans/teacher/2448" target="_blank" rel="noopener">Faculty profile</a></div>
+                    </div>
+                </article>
+                <article class="alumni-profile-card">
+                    <img src="alumni_dahmane_ouazia.jpg" alt="Dahmane Ouazia, PhD" class="alumni-photo">
+                    <div class="alumni-profile-body">
+                        <h3>Dahmane Ouazia, PhD</h3>
+                        <p class="alumni-current-title">Leader in Medical Communications</p>
+                        <div class="alumni-profile-links"><a href="https://www.linkedin.com/in/dahmane-ouazia" target="_blank" rel="noopener">LinkedIn</a></div>
+                    </div>
+                </article>
+                <article class="alumni-profile-card">
+                    <img src="alumni_renxu_chang.jpg" alt="Renxu Chang, PhD" class="alumni-photo">
+                    <div class="alumni-profile-body">
+                        <h3>Renxu Chang, PhD</h3>
+                        <p class="alumni-current-title">Drug discovery scientist</p>
+                        <div class="alumni-profile-links"><a href="https://www.linkedin.com/in/renxu-chang-5b25b7142/" target="_blank" rel="noopener">LinkedIn</a></div>
+                    </div>
+                </article>
+                <article class="alumni-profile-card">
+                    <img src="alumni_alvaro_gutierrez_uzquiza.jpg" alt="Alvaro Gutierrez-Uzquiza, PhD" class="alumni-photo">
+                    <div class="alumni-profile-body">
+                        <h3>Alvaro Gutierrez-Uzquiza, PhD</h3>
+                        <p class="alumni-current-title">Researcher in molecular biology</p>
+                        <div class="alumni-profile-links"><a href="https://www.linkedin.com/in/alvaro-gutierrez-uzquiza-961b5379/" target="_blank" rel="noopener">LinkedIn</a></div>
+                    </div>
+                </article>
+                <article class="alumni-profile-card">
+                    <img src="alumni_daniela_ricci.jpg" alt="Daniela Ricci, PhD" class="alumni-photo">
+                    <div class="alumni-profile-body">
+                        <h3>Daniela Ricci, PhD</h3>
+                        <p class="alumni-current-title">Chargé de recherche, drug discovery</p>
+                        <div class="alumni-profile-links"><a href="https://www.linkedin.com/in/daniela-ricci-1714aa40/?locale=en" target="_blank" rel="noopener">LinkedIn</a></div>
+                    </div>
+                </article>
+                <article class="alumni-profile-card">
+                    <img src="alumni_jaewoo_choi.jpg" alt="Jaewoo Choi, PhD" class="alumni-photo">
+                    <div class="alumni-profile-body">
+                        <h3>Jaewoo Choi, PhD</h3>
+                        <p class="alumni-current-title">Assistant Professor, Seoul National University</p>
+                        <div class="alumni-profile-links"><span>Link coming soon</span></div>
+                    </div>
+                </article>
+                <article class="alumni-profile-card">
+                    <img src="alumni_grant_grothusen.jpg" alt="Grant Grothusen, PhD" class="alumni-photo">
+                    <div class="alumni-profile-body">
+                        <h3>Grant Grothusen, PhD</h3>
+                        <p class="alumni-current-title">Postdoctoral Researcher, Children's Hospital of Philadelphia</p>
+                        <div class="alumni-profile-links"><a href="https://www.linkedin.com/in/grant-grothusen/" target="_blank" rel="noopener">LinkedIn</a></div>
+                    </div>
+                </article>
+                <article class="alumni-profile-card">
+                    <img src="alumni_rizwan_saffie.jpg" alt="Rizwan Saffie, PhD" class="alumni-photo">
+                    <div class="alumni-profile-body">
+                        <h3>Rizwan Saffie, PhD</h3>
+                        <p class="alumni-current-title">Associate Director in Innovation, Insights, & Transformation, AbbVie</p>
+                        <div class="alumni-profile-links"><a href="https://www.linkedin.com/in/rizwan-saffie/" target="_blank" rel="noopener">LinkedIn</a></div>
+                    </div>
+                </article>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-cols">
+            <div>
+                <img src="BusinoLab_logo_header.png" alt="Busino Lab Branding" class="footer-logo-img">
+                <p style="font-size:0.95rem; line-height: 1.6; margin-bottom:1.2rem; color: var(--muted);">
+                    <a href="https://www.cbio.med.upenn.edu/" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(74,85,104,0.25);">Department of Cancer Biology</a><br>
+                    Perelman School of Medicine | University of Pennsylvania<br>
+                    421 Curie Blvd, 705 KRB<br>
+                    Philadelphia, PA 19104
+                </p>
+                <a href="https://x.com/businolab" target="_blank" rel="noopener" class="tw-btn">Follow @businolab</a>
+                <img src="psom_logo_blue@2x.png" alt="Perelman School of Medicine, University of Pennsylvania" class="psom-logo">
+            </div>
+            <div class="footer-links-group">
+                <h5>Affiliated institutions</h5>
+                <ul class="link-list">
+                    <li><a href="https://www.upenn.edu" target="_blank" rel="noopener">University of Pennsylvania</a></li>
+                    <li><a href="https://www.med.upenn.edu" target="_blank" rel="noopener">Perelman School of Medicine</a></li>
+                    <li><a href="https://www.cbio.med.upenn.edu/" target="_blank" rel="noopener">Department of Cancer Biology</a></li>
+                    <li><a href="https://www.med.upenn.edu/pcgi/" target="_blank" rel="noopener">Penn Center for Genomic Instability</a></li>
+                    <li><a href="https://www.afcri.upenn.edu" target="_blank" rel="noopener">Abramson Family Cancer Research Institute</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="lower-footer">
+            &copy; 2026 The Busino Lab. Perelman School of Medicine, University of Pennsylvania. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
