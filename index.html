@@ -84,6 +84,33 @@
             object-fit: contain;
         }
 
+        .institution-logos {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .institution-logo-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .institution-logo-link:hover {
+            opacity: 0.78;
+        }
+
+        .header-cbio-logo {
+            height: 126px;
+            width: auto;
+            max-width: 180px;
+            display: block;
+            object-fit: contain;
+        }
+
         .site-title h1 {
             font-size: 1.32rem;
             font-weight: 800;
@@ -959,6 +986,8 @@
             .brand-container { justify-content: center; min-width: auto; }
             .lab-logo { height: 112px; }
             .header-psom-logo { height: 50px; max-width: 280px; }
+            .header-cbio-logo { height: 88px; max-width: 220px; }
+            .institution-logos { justify-content: center; flex-wrap: wrap; }
             nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
             .campus-hero { min-height: 560px; }
             .hero-card-row, .intro-block, .research-split, .project-grid, .people-directory, .alumni-grid, .footer-cols { grid-template-columns: 1fr; }
@@ -992,7 +1021,14 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <img src="psom_logo_blue@2x.png" alt="Perelman School of Medicine, University of Pennsylvania" class="header-psom-logo">
+            <div class="institution-logos" aria-label="Institution links">
+                <a href="https://www.med.upenn.edu/" target="_blank" rel="noopener" class="institution-logo-link" aria-label="Perelman School of Medicine">
+                    <img src="psom_logo_blue@2x.png" alt="Perelman School of Medicine, University of Pennsylvania" class="header-psom-logo">
+                </a>
+                <a href="https://www.cbio.med.upenn.edu/" target="_blank" rel="noopener" class="institution-logo-link" aria-label="Department of Cancer Biology">
+                    <img src="CBIOlogo.jpg" alt="Department of Cancer Biology" class="header-cbio-logo">
+                </a>
+            </div>
         </div>
     </header>
 
@@ -1130,6 +1166,15 @@
                         <h3><a href="people/thilan-trinh.html">Thilan Trinh</a></h3>
                         <p class="person-title">Lab Member</p>
                         <p class="person-email"><a href="mailto:Thilan.Trinh@PennMedicine.upenn.edu">Thilan.Trinh@PennMedicine.upenn.edu</a></p>
+                        <p class="person-links"><span>LinkedIn coming soon</span></p>
+                    </div>
+                </article>
+                <article class="person-card">
+                    <a href="people/lan-trinh.html" class="person-photo-link" aria-label="Open Lan Trinh profile"><img src="Lan_profile.jpg" alt="Lan Trinh" class="person-thumb"></a>
+                    <div class="person-card-body">
+                        <h3><a href="people/lan-trinh.html">Lan Trinh, PhD</a></h3>
+                        <p class="person-title">Postdoctoral Researcher</p>
+                        <p class="person-email"><span>Email coming soon</span></p>
                         <p class="person-links"><span>LinkedIn coming soon</span></p>
                     </div>
                 </article>

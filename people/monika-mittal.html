@@ -42,6 +42,10 @@
         .brand-container { display: flex; align-items: center; gap: 16px; }
         .lab-logo { height: 112px; width: auto; object-fit: contain; display: block; }
         .header-psom-logo { height: 58px; width: auto; max-width: 300px; object-fit: contain; display: block; }
+        .institution-logos { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; flex-shrink: 0; }
+        .institution-logo-link { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.2s ease; }
+        .institution-logo-link:hover { opacity: 0.78; }
+        .header-cbio-logo { height: 118px; width: auto; max-width: 240px; object-fit: contain; display: block; }
         .site-title h1 { font-size: 1.32rem; font-weight: 850; color: var(--ink); letter-spacing: -0.04em; line-height: 1; }
         .site-title p { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.09em; margin-top: 0.4rem; font-weight: 700; }
         .back-link {
@@ -114,37 +118,6 @@
             font-weight: 800;
         }
         .email a { color: var(--penn-blue); text-decoration: none; }
-        .profile-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: -1rem 0 2rem;
-            align-items: center;
-        }
-        .profile-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--ink);
-            text-decoration: none;
-            font-size: 0.86rem;
-            font-weight: 850;
-            border: 1px solid var(--line);
-            background: #fff;
-            border-radius: 999px;
-            padding: 0.48rem 0.85rem;
-            transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-        }
-        .profile-links a:hover {
-            color: var(--penn-blue);
-            border-color: var(--penn-blue);
-            transform: translateY(-1px);
-        }
-        .profile-links span {
-            color: #8a92a8;
-            font-size: 0.86rem;
-            font-weight: 800;
-        }
         .bio-card {
             border: 1px solid var(--line);
             background: linear-gradient(180deg, #fff, var(--soft));
@@ -172,6 +145,8 @@
             main { padding: 3rem 1.25rem 4rem; }
             .lab-logo { height: 112px; }
             .header-psom-logo { height: 50px; max-width: 280px; }
+            .header-cbio-logo { height: 88px; max-width: 220px; }
+            .institution-logos { justify-content: center; flex-wrap: wrap; }
         }
 
     </style>
@@ -187,7 +162,14 @@
                 </div>
             </div>
             <a class="back-link" href="../index.html#people">Back to people</a>
-            <img src="../psom_logo_blue@2x.png" alt="Perelman School of Medicine, University of Pennsylvania" class="header-psom-logo">
+            <div class="institution-logos" aria-label="Institution links">
+                <a href="https://www.cbio.med.upenn.edu/" target="_blank" rel="noopener" class="institution-logo-link" aria-label="Department of Cancer Biology">
+                    <img src="../CBIOlogo_header.png" alt="Department of Cancer Biology" class="header-cbio-logo">
+                </a>
+                <a href="https://www.med.upenn.edu/" target="_blank" rel="noopener" class="institution-logo-link" aria-label="Perelman School of Medicine">
+                    <img src="../psom_logo_blue@2x.png" alt="Perelman School of Medicine, University of Pennsylvania" class="header-psom-logo">
+                </a>
+            </div>
         </div>
     </header>
 
@@ -200,8 +182,7 @@
                 <div class="kicker">Research profile</div>
                 <h1>Monika Mittal</h1>
                 <div class="title">Lab Member</div>
-                <div class="email"><a href="mailto:Monika.Mittal1@Pennmedicine.upenn.edu">Monika.Mittal1@Pennmedicine.upenn.edu</a></div>
-                <div class="profile-links"><a href="https://www.linkedin.com/in/monika-mittal-a9033b118" target="_blank" rel="noopener">LinkedIn</a></div>
+                <div class="email"><span>Email coming soon</span></div>
                 <div class="bio-card">
                     <p>Research profile coming soon.</p>
                 </div>
