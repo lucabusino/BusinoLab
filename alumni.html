@@ -987,7 +987,7 @@
 
         .alumni-page-grid {
             max-width: 1180px;
-            margin: 0 auto 6rem;
+            margin: 0 auto 5rem;
             padding: 0 2rem;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1056,6 +1056,67 @@
         .alumni-profile-links span {
             color: #8a92a8;
             border-bottom: none;
+        }
+
+
+
+        .student-alumni-section {
+            max-width: 1180px;
+            margin: -3.5rem auto 6rem;
+            padding: 0 2rem;
+        }
+
+        .student-alumni-panel {
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            background: linear-gradient(135deg, #ffffff, #f8faff);
+            box-shadow: 0 12px 34px rgba(8,20,70,0.06);
+            padding: 2rem;
+        }
+
+        .student-alumni-panel h3 {
+            color: var(--ink);
+            font-size: 1.55rem;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.65rem;
+        }
+
+        .student-alumni-panel p {
+            color: var(--muted);
+            font-size: 0.98rem;
+            line-height: 1.65;
+            max-width: 780px;
+            margin-bottom: 1.25rem;
+        }
+
+        .student-alumni-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 0.75rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .student-alumni-list li {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 16px;
+            padding: 0.9rem 1rem;
+            color: var(--ink);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .student-alumni-list a {
+            color: var(--penn-blue);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(1,37,110,0.25);
+        }
+
+        .student-alumni-list a:hover {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
         }
 
         .back-link-row {
@@ -1182,6 +1243,21 @@
                     </div>
                 </article>
         </section>
+
+        <section class="student-alumni-section" aria-label="Undergraduate and master's alumni">
+            <div class="student-alumni-panel">
+                <h3>Undergraduate and Master's Alumni</h3>
+                <p>Former undergraduate and master's students who contributed to the Busino Lab research program.</p>
+                <ul class="student-alumni-list">
+                    <li>Christopher Wu</li>
+                    <li>Maryam Khan</li>
+                    <li><a href="https://www.linkedin.com/posts/yamina-rodr%C3%ADguez-montes-2147b0208_this-summer-2023-i-had-the-privilege-to-participate-activity-7102027670305001472-66qz" target="_blank" rel="noopener">Yamina Rodríguez Montes</a></li>
+                    <li>Tevah Nesvisky</li>
+                    <li><a href="https://www.linkedin.com/in/aqsa-yashfeen-90a121232" target="_blank" rel="noopener">Aqsa Yashfeen</a></li>
+                </ul>
+            </div>
+        </section>
+
     </main>
 
     <footer id="contact">
