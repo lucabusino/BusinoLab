@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lucabusino.github.io/BusinoLab/sitemap.xml
