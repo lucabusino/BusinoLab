@@ -1,39 +1,78 @@
 <!DOCTYPE html>
-
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- SEO: start -->
-<meta content="Alumni of the Busino Lab at the University of Pennsylvania, including scientists trained in ubiquitin biology, targeted protein degradation, lymphoma, myeloma, and cancer biology." name="description"/>
-<meta content="Busino Lab alumni, University of Pennsylvania, Cancer Biology alumni, ubiquitin biology alumni, targeted protein degradation" name="keywords"/>
+<meta content="Current members of the Busino Lab at the University of Pennsylvania, with research profiles and contact information." name="description"/>
+<meta content="Busino Lab, Luca Busino, University of Pennsylvania, Penn, Cancer Biology, ubiquitin signaling, E3 ligase, targeted protein degradation, molecular glues, PROTACs, DLBCL, myeloma, AML, hematologic malignancies" name="keywords"/>
 <meta content="index,follow,max-image-preview:large" name="robots"/>
-<link href="https://lucabusino.github.io/BusinoLab/alumni.html" rel="canonical"/>
-<meta content="Busino Lab Alumni | University of Pennsylvania Cancer Biology" property="og:title"/>
-<meta content="Alumni of the Busino Lab at the University of Pennsylvania, including scientists trained in ubiquitin biology, targeted protein degradation, lymphoma, myeloma, and cancer biology." property="og:description"/>
-<meta content="article" property="og:type"/>
-<meta content="https://lucabusino.github.io/BusinoLab/alumni.html" property="og:url"/>
-<meta content="https://lucabusino.github.io/BusinoLab/BusinoLab_logo.jpg" property="og:image"/>
+<link href="https://lucabusino.github.io/BusinoLab/people.html" rel="canonical"/>
+<meta content="People | Busino Lab" property="og:title"/>
+<meta content="Current members of the Busino Lab at the University of Pennsylvania, with research profiles and contact information." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://lucabusino.github.io/BusinoLab/people.html" property="og:url"/>
+<meta content="https://lucabusino.github.io/BusinoLab/1500x500.jpg" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Busino Lab Alumni | University of Pennsylvania Cancer Biology" name="twitter:title"/>
-<meta content="Alumni of the Busino Lab at the University of Pennsylvania, including scientists trained in ubiquitin biology, targeted protein degradation, lymphoma, myeloma, and cancer biology." name="twitter:description"/>
-<meta content="https://lucabusino.github.io/BusinoLab/BusinoLab_logo.jpg" name="twitter:image"/>
+<meta content="People | Busino Lab" name="twitter:title"/>
+<meta content="Current members of the Busino Lab at the University of Pennsylvania, with research profiles and contact information." name="twitter:description"/>
+<meta content="https://lucabusino.github.io/BusinoLab/1500x500.jpg" name="twitter:image"/>
 <script type="application/ld+json">
     {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Busino Lab Alumni",
-  "url": "https://lucabusino.github.io/BusinoLab/alumni.html",
-  "description": "Alumni of the Busino Lab at the University of Pennsylvania, including scientists trained in ubiquitin biology, targeted protein degradation, lymphoma, myeloma, and cancer biology.",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "Busino Lab",
-    "url": "https://lucabusino.github.io/BusinoLab/"
-  }
+  "@graph": [
+    {
+      "@type": "ResearchOrganization",
+      "@id": "https://lucabusino.github.io/BusinoLab/#organization",
+      "name": "Busino Lab",
+      "url": "https://lucabusino.github.io/BusinoLab/",
+      "logo": "https://lucabusino.github.io/BusinoLab/BusinoLab_logo.jpg",
+      "description": "The Busino Lab at the University of Pennsylvania studies ubiquitin signaling, E3 ligases, targeted protein degradation, molecular glues, PROTACs, and precision therapies for hematologic malignancies.",
+      "founder": {
+        "@type": "Person",
+        "name": "Luca Busino"
+      },
+      "parentOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Pennsylvania Perelman School of Medicine",
+        "url": "https://www.med.upenn.edu/"
+      },
+      "department": {
+        "@type": "Organization",
+        "name": "Department of Cancer Biology",
+        "url": "https://www.cbio.med.upenn.edu/"
+      },
+      "sameAs": [
+        "https://www.med.upenn.edu/",
+        "https://www.cbio.med.upenn.edu/",
+        "https://x.com/businolab"
+      ],
+      "knowsAbout": [
+        "ubiquitin signaling",
+        "E3 ligases",
+        "targeted protein degradation",
+        "molecular glues",
+        "PROTACs",
+        "DLBCL",
+        "myeloma",
+        "acute myeloid leukemia",
+        "hematologic malignancies",
+        "cancer biology"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lucabusino.github.io/BusinoLab/#website",
+      "name": "Busino Lab",
+      "url": "https://lucabusino.github.io/BusinoLab/",
+      "publisher": {
+        "@id": "https://lucabusino.github.io/BusinoLab/#organization"
+      }
+    }
+  ]
 }
     </script>
 <!-- SEO: end -->
-<title>Busino Lab Alumni | University of Pennsylvania Cancer Biology</title>
+<title>People | Busino Lab</title>
 <style>
         :root {
             --ink: #0b123f;
@@ -361,26 +400,32 @@
             padding: 1.2rem;
             overflow: hidden;
             box-shadow: var(--shadow);
+            text-align: center;
         }
 
         .slider-container {
             display: flex;
+            justify-content: center;
             transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .slide {
             min-width: 100%;
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             padding: 0.3rem;
         }
 
         .slide-img {
-            width: 100%;
+            width: min(100%, 1050px);
             height: auto;
             max-height: 620px;
             object-fit: contain;
             display: block;
+            margin: 0 auto;
             border-radius: 18px;
             background: #fff;
         }
@@ -907,6 +952,37 @@
             color: #8a92a8;
         }
 
+        .people-alumni-link {
+            margin-top: 3.25rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .people-alumni-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.85rem 1.25rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #ffffff;
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 850;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(8,20,70,0.06);
+            transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .people-alumni-button:hover {
+            transform: translateY(-2px);
+            color: var(--penn-blue);
+            border-color: #cbd2ea;
+            box-shadow: 0 16px 42px rgba(8,20,70,0.10);
+        }
+
 
 
         .alumni-grid {
@@ -992,182 +1068,73 @@
         }
     
 
-        .alumni-page-hero {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 5rem 2rem 2.5rem;
-        }
-
-        .alumni-page-hero h2 {
-            max-width: 850px;
-            color: var(--ink);
-            font-size: clamp(2.6rem, 5vw, 5rem);
-            line-height: 1.05;
-            letter-spacing: -0.07em;
-            font-weight: 900;
-            margin-bottom: 1.2rem;
-        }
-
-        .alumni-page-hero p {
-            max-width: 760px;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--muted);
-        }
-
-        .alumni-page-grid {
-            max-width: 1180px;
-            margin: 0 auto 5rem;
-            padding: 0 2rem;
+        .page-cta-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.3rem;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .alumni-profile-card {
-            border: 1px solid var(--line);
-            background: #fff;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 12px 34px rgba(8,20,70,0.06);
-            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-        }
-
-        .alumni-profile-card:hover {
-            transform: translateY(-4px);
-            border-color: #cbd2ea;
-            box-shadow: 0 18px 44px rgba(8,20,70,0.10);
-        }
-
-        .alumni-photo {
-            width: 100%;
-            aspect-ratio: 1 / 1;
+        .page-cta-card {
             display: block;
-            object-fit: cover;
-            object-position: center;
-            background: linear-gradient(135deg, #eef2ff, #f8fafc);
+            text-decoration: none;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 1.4rem;
+            background: #fff;
+            box-shadow: 0 10px 34px rgba(8,20,70,0.06);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .alumni-profile-body {
-            padding: 1.25rem;
+        .page-cta-card:hover {
+            transform: translateY(-3px);
+            border-color: #cbd2ea;
+            box-shadow: 0 16px 44px rgba(8,20,70,0.10);
         }
 
-        .alumni-profile-body h3 {
-            font-size: 1.1rem;
+        .page-cta-card h3 {
             color: var(--ink);
-            letter-spacing: -0.035em;
+            font-size: 1.05rem;
+            letter-spacing: -0.03em;
             margin-bottom: 0.45rem;
         }
 
-        .alumni-current-title {
-            font-size: 0.92rem;
+        .page-cta-card p {
             color: var(--muted);
-            line-height: 1.5;
-            min-height: 3.1rem;
+            font-size: 0.94rem;
+            line-height: 1.55;
         }
 
-        .alumni-profile-links {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-            font-size: 0.82rem;
-            font-weight: 850;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .alumni-profile-links a, .alumni-profile-links span {
-            color: var(--penn-blue);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(1,37,110,0.25);
-        }
-
-        .alumni-profile-links span {
-            color: #8a92a8;
-            border-bottom: none;
-        }
-
-
-
-        .student-alumni-section {
-            max-width: 1180px;
-            margin: -3.5rem auto 6rem;
-            padding: 0 2rem;
-        }
-
-        .student-alumni-panel {
+        .contact-card {
             border: 1px solid var(--line);
             border-radius: 24px;
-            background: linear-gradient(135deg, #ffffff, #f8faff);
-            box-shadow: 0 12px 34px rgba(8,20,70,0.06);
-            padding: 2rem;
-        }
-
-        .student-alumni-panel h3 {
-            color: var(--ink);
-            font-size: 1.55rem;
-            letter-spacing: -0.04em;
-            margin-bottom: 0.65rem;
-        }
-
-        .student-alumni-panel p {
-            color: var(--muted);
-            font-size: 0.98rem;
-            line-height: 1.65;
-            max-width: 780px;
-            margin-bottom: 1.25rem;
-        }
-
-        .student-alumni-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-            gap: 0.75rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .student-alumni-list li {
-            border: 1px solid var(--line);
+            padding: 1.6rem;
             background: #fff;
-            border-radius: 16px;
-            padding: 0.9rem 1rem;
-            color: var(--ink);
-            font-weight: 800;
-            letter-spacing: -0.025em;
+            box-shadow: 0 10px 34px rgba(8,20,70,0.06);
         }
 
-        .student-alumni-list a {
+        .contact-card h3 {
+            color: var(--ink);
+            font-size: 1.1rem;
+            margin-bottom: 0.7rem;
+            letter-spacing: -0.03em;
+        }
+
+        .contact-card p, .contact-card li {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .contact-card a {
             color: var(--penn-blue);
             text-decoration: none;
-            border-bottom: 1px solid rgba(1,37,110,0.25);
+            font-weight: 750;
         }
 
-        .student-alumni-list a:hover {
-            color: var(--ink);
-            border-bottom-color: var(--ink);
-        }
-
-        .back-link-row {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem 0;
-        }
-
-        .back-link-row a {
-            color: var(--penn-blue);
-            font-size: 0.82rem;
-            font-weight: 850;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(1,37,110,0.25);
-        }
+        .contact-card a:hover { text-decoration: underline; }
 </style>
-</head>
-<body>
-<header>
+</head><body><header>
 <div class="header-wrap">
 <div class="brand-container">
 <a aria-label="Go to Busino Lab homepage" class="brand-home" href="index.html">
@@ -1190,100 +1157,92 @@
 </a>
 </div>
 </div>
-</header>
-<div class="back-link-row"><a href="people.html">← Back to people</a></div>
-<main>
-<section class="alumni-page-hero">
-<div class="section-kicker">Alumni</div>
-<h2>Busino Lab alumni.</h2>
-<p>Former trainees and lab members have moved into academic, biotechnology, pharmaceutical, consulting, and communications roles. This page highlights where they are now.</p>
-</section>
-<section aria-label="Busino Lab alumni list" class="alumni-page-grid">
-<article class="alumni-profile-card">
-<img alt="Nan Zhou, PhD" class="alumni-photo" src="alumni_nan_zhou.jpg"/>
-<div class="alumni-profile-body">
-<h3>Nan Zhou, PhD</h3>
-<p class="alumni-current-title">Associate Professor and doctoral supervisor, Sun Yat-sen University School of Medicine</p>
-<div class="alumni-profile-links"><a href="https://szmed.sysu.edu.cn/zh-hans/teacher/2448" rel="noopener" target="_blank">Faculty profile</a></div>
+</header><main class="main-wrapper"><section id="people">
+<div class="section-kicker">People</div>
+<h2 class="section-heading">Our <span>Team</span></h2>
+<div class="people-directory">
+<article class="person-card">
+<a aria-label="Open Luca Busino profile" class="person-photo-link" href="people/luca-busino.html"><img alt="Luca Busino" class="person-thumb" src="busino.jpg"/></a>
+<div class="person-card-body">
+<h3><a href="people/luca-busino.html">Luca Busino, PhD</a></h3>
+<p class="person-title">Principal Investigator</p>
+<p class="person-email"><a href="mailto:businol@upenn.edu">businol@upenn.edu</a></p>
+<p class="person-links"><a href="https://www.linkedin.com/in/luca-busino-63509a27" rel="noopener" target="_blank">LinkedIn</a></p>
 </div>
 </article>
-<article class="alumni-profile-card">
-<img alt="Dahmane Ouazia, PhD" class="alumni-photo" src="alumni_dahmane_ouazia.jpg"/>
-<div class="alumni-profile-body">
-<h3>Dahmane Ouazia, PhD</h3>
-<p class="alumni-current-title">Leader in Medical Communications</p>
-<div class="alumni-profile-links"><a href="https://www.linkedin.com/in/dahmane-ouazia" rel="noopener" target="_blank">LinkedIn</a></div>
+<article class="person-card">
+<a aria-label="Open Sehbanul Islam profile" class="person-photo-link" href="people/sehbanul-islam.html"><img alt="Sehbanul Islam" class="person-thumb" src="Sehbanul_profile.jpg"/></a>
+<div class="person-card-body">
+<h3><a href="people/sehbanul-islam.html">Sehbanul Islam, PhD</a></h3>
+<p class="person-title">Research Associate</p>
+<p class="person-email"><a href="mailto:Sehbanul.Islam@Pennmedicine.upenn.edu">Sehbanul.Islam@Pennmedicine.upenn.edu</a></p>
+<p class="person-links"><a href="https://www.linkedin.com/in/sehbanulislam" rel="noopener" target="_blank">LinkedIn</a></p>
 </div>
 </article>
-<article class="alumni-profile-card">
-<img alt="Renxu Chang, PhD" class="alumni-photo" src="alumni_renxu_chang.jpg"/>
-<div class="alumni-profile-body">
-<h3>Renxu Chang, PhD</h3>
-<p class="alumni-current-title">Drug discovery scientist</p>
-<div class="alumni-profile-links"><a href="https://www.linkedin.com/in/renxu-chang-5b25b7142/" rel="noopener" target="_blank">LinkedIn</a></div>
+<article class="person-card">
+<a aria-label="Open Jiadong Tao profile" class="person-photo-link" href="people/jiadong-tao.html"><img alt="Jiadong Tao" class="person-thumb" src="Jiadong_profile.jpg"/></a>
+<div class="person-card-body">
+<h3><a href="people/jiadong-tao.html">Jiadong Tao, PhD</a></h3>
+<p class="person-title">Postdoctoral Researcher</p>
+<p class="person-email"><a href="mailto:Jiadong.Tao@Pennmedicine.upenn.edu">Jiadong.Tao@Pennmedicine.upenn.edu</a></p>
+<p class="person-links"><a href="https://www.linkedin.com/in/jiadong-tao-551351253" rel="noopener" target="_blank">LinkedIn</a></p>
 </div>
 </article>
-<article class="alumni-profile-card">
-<img alt="Alvaro Gutierrez-Uzquiza, PhD" class="alumni-photo" src="alumni_alvaro_gutierrez_uzquiza.jpg"/>
-<div class="alumni-profile-body">
-<h3>Alvaro Gutierrez-Uzquiza, PhD</h3>
-<p class="alumni-current-title">Researcher in molecular biology</p>
-<div class="alumni-profile-links"><a href="https://www.linkedin.com/in/alvaro-gutierrez-uzquiza-961b5379/" rel="noopener" target="_blank">LinkedIn</a></div>
+<article class="person-card">
+<a aria-label="Open Mukul Mishra profile" class="person-photo-link placeholder-photo" href="people/mukul-mishra.html">MM</a>
+<div class="person-card-body">
+<h3><a href="people/mukul-mishra.html">Mukul Mishra</a></h3>
+<p class="person-title">Lab Member</p>
+<p class="person-email"><a href="mailto:Mukul.Mishra@Pennmedicine.upenn.edu">Mukul.Mishra@Pennmedicine.upenn.edu</a></p>
+<p class="person-links"><span>LinkedIn coming soon</span></p>
 </div>
 </article>
-<article class="alumni-profile-card">
-<img alt="Daniela Ricci, PhD" class="alumni-photo" src="alumni_daniela_ricci.jpg"/>
-<div class="alumni-profile-body">
-<h3>Daniela Ricci, PhD</h3>
-<p class="alumni-current-title">Chargé de recherche, drug discovery</p>
-<div class="alumni-profile-links"><a href="https://www.linkedin.com/in/daniela-ricci-1714aa40/?locale=en" rel="noopener" target="_blank">LinkedIn</a></div>
+<article class="person-card">
+<a aria-label="Open Monika Mittal profile" class="person-photo-link" href="people/monika-mittal.html"><img alt="Monika Mittal" class="person-thumb" src="Monika_profile.jpg"/></a>
+<div class="person-card-body">
+<h3><a href="people/monika-mittal.html">Monika Mittal, PhD</a></h3>
+<p class="person-title">Postdoctoral Fellow</p>
+<p class="person-email"><a href="mailto:monika.mittal1@pennmedicine.upenn.edu">monika.mittal1@pennmedicine.upenn.edu</a></p>
+<p class="person-links"><a href="https://www.linkedin.com/in/monika-mittal-a9033b118/" rel="noopener" target="_blank">LinkedIn</a></p>
 </div>
 </article>
-<article class="alumni-profile-card">
-<img alt="Jaewoo Choi, PhD" class="alumni-photo" src="alumni_jaewoo_choi.jpg"/>
-<div class="alumni-profile-body">
-<h3>Jaewoo Choi, PhD</h3>
-<p class="alumni-current-title">Assistant Professor, Seoul National University</p>
-<div class="alumni-profile-links"><span>Link coming soon</span></div>
+<article class="person-card">
+<a aria-label="Open Jiajun Tan profile" class="person-photo-link placeholder-photo" href="people/jiajun-tan.html">JT</a>
+<div class="person-card-body">
+<h3><a href="people/jiajun-tan.html">Jiajun Tan</a></h3>
+<p class="person-title">Lab Member</p>
+<p class="person-email"><a href="mailto:Jiajun.Tan@PennMedicine.upenn.edu">Jiajun.Tan@PennMedicine.upenn.edu</a></p>
+<p class="person-links"><span>LinkedIn coming soon</span></p>
 </div>
 </article>
-<article class="alumni-profile-card">
-<img alt="Grant Grothusen, PhD" class="alumni-photo" src="alumni_grant_grothusen.jpg"/>
-<div class="alumni-profile-body">
-<h3>Grant Grothusen, PhD</h3>
-<p class="alumni-current-title">Postdoctoral Researcher, Children's Hospital of Philadelphia</p>
-<div class="alumni-profile-links"><a href="https://www.linkedin.com/in/grant-grothusen/" rel="noopener" target="_blank">LinkedIn</a></div>
+<article class="person-card">
+<a aria-label="Open Thilan Trinh profile" class="person-photo-link" href="people/thilan-trinh.html"><img alt="Thilan Trinh" class="person-thumb" src="Thilan_profile.jpg"/></a>
+<div class="person-card-body">
+<h3><a href="people/thilan-trinh.html">Thilan Trinh, PhD</a></h3>
+<p class="person-title">Postdoctoral Researcher</p>
+<p class="person-email"><a href="mailto:Thilan.Trinh@PennMedicine.upenn.edu">Thilan.Trinh@PennMedicine.upenn.edu</a></p>
+<p class="person-links"><span>LinkedIn coming soon</span></p>
 </div>
 </article>
-<article class="alumni-profile-card">
-<img alt="Rizwan Saffie, PhD" class="alumni-photo" src="alumni_rizwan_saffie.jpg"/>
-<div class="alumni-profile-body">
-<h3>Rizwan Saffie, PhD</h3>
-<p class="alumni-current-title">Associate Director in Innovation, Insights, &amp; Transformation, AbbVie</p>
-<div class="alumni-profile-links"><a href="https://www.linkedin.com/in/rizwan-saffie/" rel="noopener" target="_blank">LinkedIn</a></div>
+<article class="person-card">
+<a aria-label="Open Lesley Moreno profile" class="person-photo-link placeholder-photo" href="people/lesley-moreno.html">LM</a>
+<div class="person-card-body">
+<h3><a href="people/lesley-moreno.html">Lesley Moreno</a></h3>
+<p class="person-title">Administrative Assistant</p>
+<p class="person-email"><a href="mailto:ljmoreno@upenn.edu">ljmoreno@upenn.edu</a></p>
+<p class="person-links"><a href="https://www.linkedin.com/in/lesley-moreno" rel="noopener" target="_blank">LinkedIn</a></p>
 </div>
 </article>
-</section>
-<section aria-label="Undergraduate and master's alumni" class="student-alumni-section">
-<div class="student-alumni-panel">
-<h3>Undergraduate and Master's Alumni</h3>
-<p>Former undergraduate and master's students who contributed to the Busino Lab research program.</p>
-<ul class="student-alumni-list">
-<li>Christopher Wu</li>
-<li>Maryam Khan</li>
-<li><a href="https://www.linkedin.com/posts/yamina-rodr%C3%ADguez-montes-2147b0208_this-summer-2023-i-had-the-privilege-to-participate-activity-7102027670305001472-66qz" rel="noopener" target="_blank">Yamina Rodríguez Montes</a></li>
-<li>Tevah Nesvisky</li>
-<li><a href="https://www.linkedin.com/in/aqsa-yashfeen-90a121232" rel="noopener" target="_blank">Aqsa Yashfeen</a></li>
-</ul>
 </div>
-</section>
-</main>
-<footer id="contact">
+<div class="people-alumni-link">
+<a class="people-alumni-button" href="alumni.html">Alumni →</a>
+</div>
+</section></main><footer id="contact">
 <div class="footer-cols">
 <div>
 <img alt="Busino Lab Branding" class="footer-logo-img" src="BusinoLab_logo_header.png"/>
 <p style="font-size:0.95rem; line-height: 1.6; margin-bottom:1.2rem; color: var(--muted);">
-<a href="https://www.cbio.med.upenn.edu/" rel="noopener" style="color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(74,85,104,0.25);" target="_blank">Department of Cancer Biology</a><br/>
+<a href="https://www.cbio.med.upenn.edu/" rel="noopener" style="color: inherit; text-decoration: none; font-weight: 700;" target="_blank">Department of Cancer Biology</a><br/>
                     Perelman School of Medicine | University of Pennsylvania<br/>
                     421 Curie Blvd, 705 KRB<br/>
                     Philadelphia, PA 19104
@@ -1305,6 +1264,4 @@
 <div class="lower-footer">
             © 2026 The Busino Lab. Perelman School of Medicine, University of Pennsylvania. All rights reserved.
         </div>
-</footer>
-</body>
-</html>
+</footer></body></html>
