@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thilan Thrinh | Busino Lab</title>
+    <title>Thilan Trinh, PhD | Busino Lab</title>
     <style>
-
         :root {
             --ink: #081446;
             --muted: #566074;
@@ -40,12 +39,12 @@
             gap: 2rem;
         }
         .brand-container { display: flex; align-items: center; gap: 16px; }
+        .brand-home { display: flex; align-items: center; gap: 16px; text-decoration: none; }
         .lab-logo { height: 112px; width: auto; object-fit: contain; display: block; }
+        .institution-logos { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
+        .institution-logo-link { display: inline-flex; align-items: center; text-decoration: none; }
         .header-psom-logo { height: 58px; width: auto; max-width: 300px; object-fit: contain; display: block; }
-        .institution-logos { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; flex-shrink: 0; }
-        .institution-logo-link { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.2s ease; }
-        .institution-logo-link:hover { opacity: 0.78; }
-        .header-cbio-logo { height: 118px; width: auto; max-width: 240px; object-fit: contain; display: block; }
+        .header-cbio-logo { height: 112px; width: auto; max-width: 240px; object-fit: contain; display: block; }
         .site-title h1 { font-size: 1.32rem; font-weight: 850; color: var(--ink); letter-spacing: -0.04em; line-height: 1; }
         .site-title p { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.09em; margin-top: 0.4rem; font-weight: 700; }
         .back-link {
@@ -77,20 +76,6 @@
             border: 1px solid var(--line);
             background: var(--soft);
         }
-        .profile-placeholder {
-            width: 100%;
-            aspect-ratio: 4 / 4.4;
-            border-radius: 28px;
-            border: 1px solid var(--line);
-            box-shadow: var(--shadow);
-            background: linear-gradient(135deg, #f3f5ff, #ffffff);
-            color: var(--penn-blue);
-            display: grid;
-            place-items: center;
-            font-size: 5rem;
-            font-weight: 900;
-            letter-spacing: -0.08em;
-        }
         .kicker {
             color: var(--penn-blue);
             text-transform: uppercase;
@@ -118,6 +103,7 @@
             font-weight: 800;
         }
         .email a { color: var(--penn-blue); text-decoration: none; }
+        .email span { color: #8a92a8; }
         .bio-card {
             border: 1px solid var(--line);
             background: linear-gradient(180deg, #fff, var(--soft));
@@ -144,30 +130,31 @@
             .profile-layout { grid-template-columns: 1fr; gap: 2rem; }
             main { padding: 3rem 1.25rem 4rem; }
             .lab-logo { height: 112px; }
+            .institution-logos { flex-wrap: wrap; justify-content: center; }
             .header-psom-logo { height: 50px; max-width: 280px; }
             .header-cbio-logo { height: 88px; max-width: 220px; }
-            .institution-logos { justify-content: center; flex-wrap: wrap; }
         }
-
     </style>
 </head>
 <body>
     <header>
         <div class="header-wrap">
             <div class="brand-container">
-                <img src="../BusinoLab_logo_header.png" alt="Busino Lab Logo" class="lab-logo">
-                <div class="site-title">
-                    <h1>Busino Lab</h1>
-                    <p>University of Pennsylvania</p>
-                </div>
+                <a href="../index.html" class="brand-home" aria-label="Go to Busino Lab homepage">
+                    <img src="../BusinoLab_logo_header.png" alt="Busino Lab Logo" class="lab-logo">
+                    <div class="site-title">
+                        <h1>Busino Lab</h1>
+                        <p>University of Pennsylvania</p>
+                    </div>
+                </a>
             </div>
             <a class="back-link" href="../index.html#people">Back to people</a>
             <div class="institution-logos" aria-label="Institution links">
-                <a href="https://www.cbio.med.upenn.edu/" target="_blank" rel="noopener" class="institution-logo-link" aria-label="Department of Cancer Biology">
-                    <img src="../CBIOlogo_header.png" alt="Department of Cancer Biology" class="header-cbio-logo">
-                </a>
                 <a href="https://www.med.upenn.edu/" target="_blank" rel="noopener" class="institution-logo-link" aria-label="Perelman School of Medicine">
                     <img src="../psom_logo_blue@2x.png" alt="Perelman School of Medicine, University of Pennsylvania" class="header-psom-logo">
+                </a>
+                <a href="https://www.cbio.med.upenn.edu/" target="_blank" rel="noopener" class="institution-logo-link" aria-label="Department of Cancer Biology">
+                    <img src="../CBIOlogo.jpg" alt="Department of Cancer Biology" class="header-cbio-logo">
                 </a>
             </div>
         </div>
@@ -176,15 +163,18 @@
     <main>
         <div class="profile-layout">
             <div>
-                <div class="profile-placeholder" aria-label="Thilan Thrinh profile placeholder">TT</div>
+                <img src="../Thilan_profile.jpg" alt="Thilan Trinh" class="profile-image">
             </div>
             <div>
                 <div class="kicker">Research profile</div>
-                <h1>Thilan Thrinh</h1>
-                <div class="title">Lab Member</div>
-                <div class="email"><span>Email coming soon</span></div>
+                <h1>Thilan Trinh, PhD</h1>
+                <div class="title">Postdoctoral Researcher · Biologic Degraders and Cell-Surface Protein Degradation</div>
+                <div class="email"><a href="mailto:Thilan.Trinh@PennMedicine.upenn.edu">Thilan.Trinh@PennMedicine.upenn.edu</a></div>
                 <div class="bio-card">
-                    <p>Research profile coming soon.</p>
+                    <p>Thilan Trinh earned her PhD in Molecular Biology after completing her undergraduate training in Biotechnology. Her research focuses on developing biologic degraders that target disease-associated cell-surface proteins for cancer therapy.</p>
+                    <p>She develops protein-based therapeutics by integrating computational design with experimental validation. Her work connects binder engineering, receptor engagement, cellular trafficking, and lysosomal biology to define how extracellular and membrane proteins can be selectively eliminated from cancer or immune cells.</p>
+                    <p>In the Busino Lab, Lan investigates receptor trafficking and lysosomal degradation pathways to enable targeted protein degradation beyond the intracellular proteasome. Her goal is to establish new biologic degrader strategies for hematologic malignancies, with emphasis on therapeutic selectivity, mechanism of action, and translational potential.</p>
+                    <p>Fun fact: when she is not in the lab, she is probably learning Korean or exploring new restaurants in search of great food.</p>
                 </div>
             </div>
         </div>
